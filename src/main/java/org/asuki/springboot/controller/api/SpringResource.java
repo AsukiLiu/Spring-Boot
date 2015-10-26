@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,9 +21,9 @@ import static org.asuki.springboot.qualifier.CustomType.FILE;
 
 @RestController
 @RequestMapping("demo")
-public class DemoResource {
+public class SpringResource {
 
-    private static final Logger log = LoggerFactory.getLogger(DemoResource.class);
+    private static final Logger log = LoggerFactory.getLogger(SpringResource.class);
 
     @Value("${sample.value}")
     private String value;
@@ -62,7 +63,7 @@ public class DemoResource {
 
     // {"id": 123, "name": "Andy"}
     @RequestMapping(method = RequestMethod.POST)
-    public Hoge post(@RequestBody Hoge hoge) {
+    public Hoge post(@RequestBody @Valid Hoge hoge) {
 
         return hoge;
     }
