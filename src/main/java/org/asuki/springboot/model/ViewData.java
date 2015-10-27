@@ -1,4 +1,4 @@
-package org.asuki.springboot.controller.page;
+package org.asuki.springboot.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
