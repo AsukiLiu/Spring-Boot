@@ -68,6 +68,11 @@ public class SpringResource {
         return hoge;
     }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public Hoge get() {
+        return new Hoge(100, "Andy");
+    }
+
     @RequestMapping(value = "error", method = RequestMethod.GET)
     public void occurCustomException() {
         throw new CustomException("test exception");
