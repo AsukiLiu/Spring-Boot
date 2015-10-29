@@ -12,10 +12,15 @@ public class DemoController {
     @Autowired
     private DemoService service;
 
-    @RequestMapping("/")
-    public String index(Model model) {
+    @RequestMapping("/thymeleaf")
+    public String thymeleafPage(Model model) {
         model.addAttribute("msg", service.findData());
-        return "index";
+        return "thymeleaf";
+    }
+
+    @RequestMapping("/angular")
+    public String angularPage() {
+        return "angular";
     }
 }
 
