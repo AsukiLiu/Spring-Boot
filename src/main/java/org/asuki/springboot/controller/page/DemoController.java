@@ -22,5 +22,10 @@ public class DemoController {
     public String angularPage() {
         return "angular";
     }
+
+    @RequestMapping("/websocket")
+    public String websocketPage() {
+        return "websocket";
+    }
 }
 
