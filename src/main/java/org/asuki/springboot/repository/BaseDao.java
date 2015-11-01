@@ -7,7 +7,7 @@ public interface BaseDao<T extends BaseEntity> {
 
     T save(T t);
 
-    void delete(T t);
+    void delete(Long id);
 
     Long count();
 }
