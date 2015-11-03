@@ -23,9 +23,14 @@ public class DemoController {
         return "angular";
     }
 
+    @RequestMapping("/angular-rest")
+    public String angularRestPage() {
+        return "angular-rest";
+    }
+
     @RequestMapping("/websocket")
     public String websocketPage() {
         return "websocket";
     }
-}
 
+}
