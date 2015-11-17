@@ -46,7 +46,7 @@ public class OpenIdConnectResource {
         ClientID clientID = request.getClientID();
 
         // Required to be registered in database
-        URI redirectURI = request.getRedirectionURI();
+        URI callbackUri = request.getRedirectionURI();
 
         ResponseType responseType = request.getResponseType();
 
@@ -56,7 +56,7 @@ public class OpenIdConnectResource {
 
         AuthorizationCode code = new AuthorizationCode();
 
-        return new AuthenticationSuccessResponse(redirectURI, code, null, null, state);
+        return new AuthenticationSuccessResponse(callbackUri, code, null, null, state);
     }
 
 }
