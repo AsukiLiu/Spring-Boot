@@ -1,5 +1,6 @@
 package org.asuki.springboot.controller.api;
 
+import org.asuki.springboot.component.NotificationSender;
 import org.asuki.springboot.qualifier.CustomQualifier;
 import org.asuki.springboot.component.Strategiable;
 import org.asuki.springboot.controller.api.exception.CustomException;
@@ -36,6 +37,9 @@ public class SpringResource {
     @CustomQualifier(DATABASE)
     private Strategiable databaseStrategy;
 
+    @Autowired
+    private NotificationSender notificationSender;
+
     // localhost:8082/demo/123?name=Andy&location=Japan&location=UK
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Map<String, String> getMap(
@@ -70,6 +74,8 @@ public class SpringResource {
 
     @RequestMapping(method = RequestMethod.GET)
     public Hoge get() {
+        log.info(notificationSender.getClass().getSimpleName());
+
         return new Hoge(100, "Andy");
     }
 
