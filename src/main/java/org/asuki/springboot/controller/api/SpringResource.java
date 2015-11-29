@@ -5,6 +5,7 @@ import org.asuki.springboot.qualifier.CustomQualifier;
 import org.asuki.springboot.component.Strategiable;
 import org.asuki.springboot.controller.api.exception.CustomException;
 import org.asuki.springboot.controller.api.model.Hoge;
+import org.asuki.springboot.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,9 @@ public class SpringResource {
 
     @Autowired
     private NotificationSender notificationSender;
+
+    @Autowired
+    private UserService userService;
 
     // localhost:8082/demo/123?name=Andy&location=Japan&location=UK
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
@@ -75,6 +79,11 @@ public class SpringResource {
     @RequestMapping(method = RequestMethod.GET)
     public Hoge get() {
         log.info(notificationSender.getClass().getSimpleName());
+
+        log.info(userService.getUserByName("name"));
+        log.info(userService.getUserByName("name"));
+        log.info(userService.updateUser("newName"));
+        log.info(userService.getUserByName("newName"));
 
         return new Hoge(100, "Andy");
     }
